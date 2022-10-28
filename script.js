@@ -64,3 +64,21 @@ if (!guess) {
   }
 
 });
+
+
+let again = document.querySelector('.again')
+
+again.addEventListener('click', function(){
+
+    document.querySelector('body').style.backgroundColor = 'black'
+
+    document.querySelector('.message').textContent = 'Start Guessing😋!  ';
+
+    document.querySelector('.number').style.width = '15rem'
+
+    document.querySelector('.score').textContent = 20
+
+    document.querySelector('.guess').value = ''
+
+
+})
