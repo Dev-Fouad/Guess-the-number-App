@@ -1,13 +1,12 @@
 'Use strict';
 
-
 let btnCheck = document.querySelector('.check');
-// console.log(btnCheck);
+console.log(btnCheck);
 
 let SecretNumber = Math.trunc(Math.random()* 20 + 1)
-console.log(SecretNumber)
+// console.log(SecretNumber)
 
-// document.querySelector('.number').textContent = SecretNumber
+document.querySelector('.number').textContent = SecretNumber
  
 
 let Score = 20
@@ -15,24 +14,26 @@ let highscore = 0
 
 // document.querySelector('.number').textContent = SecretNumber
 
-let displayMessage = (message) {
 
-    document.querySelector('.message').textContent = message
+document.querySelector('.message').textContent = 'Start Guessing😋!  ';
+
+let displayMessage = function(message){
+
+    document.querySelector('.message').textContent = message;
 }
-
 
 btnCheck.addEventListener('click', function () {
 
-  let guess = Number(document.querySelector('.guess').value);
-  console.log(guess, typeof guess);
+let guess = Number(document.querySelector('.guess').value);
+console.log(guess, typeof guess);
 
-    //When there is no input
+//When there is no input
 if (!guess) {
 
     document.querySelector('.message').textContent = '⛔ No number!  ';
 
 
-    //When the output is correct
+//When the output is correct
 }else if (guess === SecretNumber){
 
     document.querySelector('.message').textContent = '😍 Correct number';
@@ -50,27 +51,27 @@ if (!guess) {
 
     }
 
+}//When the output is graeter
+else if ( guess !== SecretNumber){
 
-    //When the output is graeter
-}else if ( guess !== SecretNumber){
-
-    
 
     if (Score > 1){
 
-        document.querySelector('.message').textContent = (guess > SecretNumber?  '💹 Too high!':  '📉 Too low!')
+        displayMessage(guess > SecretNumber?  '💹 Too high!':  '📉 Too low!');
 
         Score--;
 
         document.querySelector('.score').textContent = Score
-    }else{
+
+}else{
 
         document.querySelector('.message').textContent = '😥 You lost the game';
 
-        document.querySelector('.score').textContent = 0
-    }
-
+        document.querySelector('.score').textContent = 0}
 }
+
+
+})
 
 
 let again = document.querySelector('.again')
@@ -83,14 +84,12 @@ again.addEventListener('click', function(){
 
     document.querySelector('.message').textContent = 'Start Guessing😋!  ';
 
-    document.querySelector('.number').style.width = '15rem'
+   document.querySelector('.number').style.width = '15rem'
 
-    document.querySelector('.score').textContent = 20
+   document.querySelector('.score').textContent = 20
 
-    document.querySelector('.guess').value = ''
+   document.querySelector('.guess').value = ''
 
-    document.querySelector('.number').textContent = '?'
+   document.querySelector('.number').textContent = '?'
 
-
- 
 })
