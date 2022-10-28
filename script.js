@@ -12,6 +12,9 @@ console.log(SecretNumber)
 
 let Score = 20
 
+document.querySelector('.number').textContent = SecretNumber
+
+
 
 btnCheck.addEventListener('click', function () {
 
