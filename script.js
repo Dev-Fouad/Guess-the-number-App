@@ -11,9 +11,14 @@ console.log(SecretNumber)
  
 
 let Score = 20
+let highscore = 0
 
 // document.querySelector('.number').textContent = SecretNumber
 
+let displayMessage = (message) {
+
+    document.querySelector('.message').textContent = message
+}
 
 
 btnCheck.addEventListener('click', function () {
@@ -38,13 +43,22 @@ if (!guess) {
 
     document.querySelector('.number').textContent = SecretNumber
 
+    if(Score > highscore){
+
+        highscore = Score
+        document.querySelector('.highscore').textContent = highscore
+
+    }
+
 
     //When the output is graeter
-}else if (guess > SecretNumber){
+}else if ( guess !== SecretNumber){
+
+    
 
     if (Score > 1){
 
-        document.querySelector('.message').textContent = '💹 Too high!';
+        document.querySelector('.message').textContent = (guess > SecretNumber?  '💹 Too high!':  '📉 Too low!')
 
         Score--;
 
@@ -56,33 +70,16 @@ if (!guess) {
         document.querySelector('.score').textContent = 0
     }
 
-
-    //When the output is too low
-}else if (guess < SecretNumber){
-
-    if(Score > 1){
-        document.querySelector('.message').textContent = '📉 Too low!';
-
-        Score--;
-
-        document.querySelector('.score').textContent = Score
-        
-    }else {
-        document.querySelector('.message').textContent = '😥 You lost the game';
-
-        document.querySelector('.score').textContent = 0
-    }
-
-  }
-
-});
+}
 
 
 let again = document.querySelector('.again')
 
 again.addEventListener('click', function(){
 
-    document.querySelector('body').style.backgroundColor = 'black'
+    SecretNumber = Math.trunc(Math.random()* 20 + 1)
+
+    document.querySelector('body').style.backgroundColor = '#222'
 
     document.querySelector('.message').textContent = 'Start Guessing😋!  ';
 
@@ -92,5 +89,8 @@ again.addEventListener('click', function(){
 
     document.querySelector('.guess').value = ''
 
+    document.querySelector('.number').textContent = '?'
 
+
+ 
 })
