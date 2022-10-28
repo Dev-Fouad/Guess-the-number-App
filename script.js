@@ -6,7 +6,7 @@ console.log(btnCheck);
 let SecretNumber = Math.trunc(Math.random()* 20 + 1)
 // console.log(SecretNumber)
 
-document.querySelector('.number').textContent = SecretNumber
+// document.querySelector('.number').textContent = SecretNumber
  
 
 let Score = 20
@@ -51,7 +51,7 @@ if (!guess) {
 
     }
 
-}//When the output is graeter
+}//When the output is not equal to Secret Number
 else if ( guess !== SecretNumber){
 
 
@@ -63,7 +63,7 @@ else if ( guess !== SecretNumber){
 
         document.querySelector('.score').textContent = Score
 
-}else{
+}   else{
 
         document.querySelector('.message').textContent = '😥 You lost the game';
 
@@ -84,12 +84,12 @@ again.addEventListener('click', function(){
 
     document.querySelector('.message').textContent = 'Start Guessing😋!  ';
 
-   document.querySelector('.number').style.width = '15rem'
+    document.querySelector('.number').style.width = '15rem'
 
-   document.querySelector('.score').textContent = 20
+    document.querySelector('.score').textContent = 20
 
-   document.querySelector('.guess').value = ''
+    document.querySelector('.guess').value = ''
 
-   document.querySelector('.number').textContent = '?'
+    document.querySelector('.number').textContent = '?'
 
 })
