@@ -4,9 +4,7 @@ let btnCheck = document.querySelector('.check');
 console.log(btnCheck);
 
 let SecretNumber = Math.trunc(Math.random()* 20 + 1)
-// console.log(SecretNumber)
 
-// document.querySelector('.number').textContent = SecretNumber
  
 
 let Score = 20
